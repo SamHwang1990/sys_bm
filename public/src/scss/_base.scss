@@ -1,0 +1,31 @@
+@import '_reset';
+
+
+html{
+  font-size: 125%; // 20px % 16px, tht minimum font-size is 12px in browser
+}
+
+body{
+  width: 100%;
+  height: auto;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', Arial, Tahoma, sans-serif;
+}
+
+.bm_wrap{
+  width: 100%;
+  height: auto;
+}
+
+[role=button]{
+  cursor: pointer;
+}
+
+
+// response content
+.img_responsive{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

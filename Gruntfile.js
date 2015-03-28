@@ -16,18 +16,18 @@ module.exports = function(grunt){
       css: '<%= distDir %>/css',
       js: '<%= distDir %>/js',
       imgs: '<%= distDir %>/imgs',
-      vendor: '%= distDir %>/vendor',
+      vendor: '<%= distDir %>/vendor',
       jsWatch: '<%= srcDir %>/js/**.js',
-      sass: '<%= srcDir %>/sass/sys_bm.sass',
-      sassWatch: '<%= srcDir %>/sass/**/*.sass',
+      scss: '<%= srcDir %>/scss/sys_bm.scss',
+      scssWatch: '<%= srcDir %>/scss/**/*.scss',
       npm: 'node_modules'
     },
     clean: ['<%= distDir %>'],
     copy:{
       assets:{
         files: [
-          { dest: '<%= src.imgs %>', src : '**', expand: true, cwd: '<%= srcDir %>/imgs' },
-          { dest: '<%= distDir %>', src: 'favicon.ico', expand: true, cwd: '<%= srcDir %>'}
+          { dest: '<%= src.imgs %>/', src : '**', expand: true, cwd: '<%= srcDir %>/imgs' },
+          { dest: '<%= distDir %>', src: 'favicon.png', expand: true, cwd: '<%= srcDir %>'}
         ]
       }
     },
@@ -38,14 +38,19 @@ module.exports = function(grunt){
         },
         src:['<%= src.jsWatch %>/**/*.js'],
         dest:'<%= src.js %>/<%= pkg.name %>.js'
+      },
+      jquery:{
+        src:['<%= src.npm %>/jquery/dist/jquery.js'],
+        dest: '<%= distDir %>/vendor/jquery.js'
       }
     },
     compass: {
       dist: {
         options: {
-          sassDir: '<%= srcDir/sass',
+          sassDir: '<%= srcDir %>/scss',
           cssDir: ['<%= src.css %>'],
-          raw: 'preferred_syntax = :sass\n' // Use `raw` since it's not directly available
+          raw: 'preferred_syntax = :sass\n', // Use `raw` since it's not directly available
+          outputStyle: 'compressed'
         }
       }
     },
@@ -53,7 +58,7 @@ module.exports = function(grunt){
       build: {
         files:[
           '<%= src.jsWatch %>',
-          '<%= src.sassWatch %>',
+          '<%= src.scssWatch %>',
           '<%= srcDir %>/imgs/**/*'
         ],
         tasks:['build','timestamp']
