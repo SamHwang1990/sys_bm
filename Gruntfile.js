@@ -36,7 +36,7 @@ module.exports = function(grunt){
         options: {
           banner: "<%= banner %>"
         },
-        src:['<%= src.jsWatch %>/**/*.js'],
+        src:['<%= src.jsWatch %>'],
         dest:'<%= src.js %>/<%= pkg.name %>.js'
       },
       jquery:{
