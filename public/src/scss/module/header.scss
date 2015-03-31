@@ -97,13 +97,12 @@
       font-size: .7rem;
       transition: color 300ms ease-in;
       &:hover{
-        color: #{$linkBlackHover};
+        color: #{$linkGreen};
         &:after{
           left: 0;
           width: 100%;
         }
       }
-
       &:after{
         content: '';
         position: absolute;
@@ -113,6 +112,18 @@
         width: 0;
         transition: left 100ms ease, width 200ms ease;
         background-color: #{$bgGreen};
+      }
+      &.active{
+        color: #{$linkGreen};
+        &:after{
+          content: '';
+          position: absolute;
+          height: 3px;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: #{$bgGreen};
+        }
       }
     }
   }
