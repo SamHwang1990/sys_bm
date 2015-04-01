@@ -187,7 +187,7 @@
 
   $(document)
     .on('click.bm.carousel.data-api', '[data-slide]', clickHandle)
-    .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandle);
+    .on('click.bm.carousel.data-api', '[data-slide-to]', clickHandle);
 
   $(window).on('load', function(){
     $('[data-ride="carousel"]').each(function(){
