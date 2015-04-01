@@ -18,7 +18,7 @@
 
   Collapse.VERSION = '0.0.1';
 
-  Collapse.TRANSITION_DURATION = 200;
+  Collapse.TRANSITION_DURATION = 350;
 
   Collapse.DEFAULT = {
     toggle: true

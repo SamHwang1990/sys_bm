@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <!--[if IE 8]>
     <style>
+        body{
+            width: auto;
+        }
         .bm_nav_list.bm_collapse{
             display: block;
         }
@@ -152,7 +155,22 @@
 <!--[if lt IE 9]>
 
 <script type="text/javascript">
-    
+    +function($){
+        var windowWidth, documentWidth;
+
+        var setDocumentWidth = function(){
+            windowWidth = $(window).width();
+            documentWidth = $(document).width();
+
+            // because the width of x scroll bar in ie is 15px
+            (windowWidth + 15 < documentWidth) ? $('body').width(documentWidth) : $('body').width(windowWidth);
+        };
+
+        $(function(){
+            setDocumentWidth();
+        })
+        $(window).resize(setDocumentWidth);
+    }(jQuery)
 </script>
 
 <![endif]-->
