@@ -19,6 +19,7 @@
   "dependencies": {
     "ejs-mate": "^2.1.0",
     "express": "^4.12.3",
+    "html5shiv": "^3.7.2",
     "jquery": "^1.11.2"
   },
   "devDependencies": {

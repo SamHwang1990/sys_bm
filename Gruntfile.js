@@ -42,6 +42,10 @@ module.exports = function(grunt){
       jquery:{
         src:['<%= src.npm %>/jquery/dist/jquery.js'],
         dest: '<%= distDir %>/vendor/jquery.js'
+      },
+      html5shiv:{
+        src: ['<%= src.npm %>/html5shiv/dist/html5shiv.min.js'],
+        dest: '<%= distDir %>/vendor/html5shiv.js'
       }
     },
     compass: {
