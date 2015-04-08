@@ -20,6 +20,10 @@ app.get('/', function(req, res, next){
   return res.render('index');
 });
 
+app.get('/list', function(req, res, next){
+  return res.render('list');
+});
+
 app.listen(3000);
 
 module.exports = app;

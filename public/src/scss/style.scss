@@ -1,13 +1,17 @@
 @import "_base";
 
-@import "module/header";
-@import "module/footer";
-@import "module/main";
-
 @import "components/carousel";
 @import "components/block";
 @import "components/list";
 @import "components/badge";
 @import "components/collapse";
+@import "components/column";
+@import "components/media";
+
+@import "module/header";
+@import "module/footer";
+@import "module/main";
+@import "module/sort";
+@import "module/lectures";
 
 @import "ieHack";
