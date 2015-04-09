@@ -1,0 +1,44 @@
+@import "../_variables";
+
+.bm_pager_wrap{
+
+}
+
+.bm_pager{
+  padding: 0;
+  margin: 14px 0;
+  list-style: none;
+  text-align: center;
+  li{
+    display: inline;
+    a,
+    span{
+      display: inline-block;
+      zoom: 1;
+      *display: inline;
+
+      padding: 5px 14px;
+      background-color: #{$bgWhite};
+      color: #{$linkGreen};
+      font-size: 14px;
+      border: 1px solid #cccccc;
+      border-radius: 15px;
+      text-decoration: none;
+    }
+    a:hover,
+    a:active{
+      background-color: darken( $bgWhite, 5% );
+    }
+  }
+  .disabled {
+    > a,
+    > a:hover,
+    > a:focus,
+    > span {
+      color: #ccc;
+      background-color: #{$bgWhite};
+      cursor: not-allowed;
+    }
+  }
+}
+
