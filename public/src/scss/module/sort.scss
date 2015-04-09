@@ -4,6 +4,9 @@
   position: relative;
   width: 80%;
   margin: 0 auto 20px auto;
+  @media #{$media} and (max-width: $screen-xx-max){
+    width: 100%;
+  }
 }
 
 .bm_sort_head{

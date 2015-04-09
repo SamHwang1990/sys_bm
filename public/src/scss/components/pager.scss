@@ -27,7 +27,8 @@
     }
     a:hover,
     a:active{
-      background-color: darken( $bgWhite, 5% );
+      color: #{$link};
+      background-color: lighten( $bgGreen, 10% );
     }
   }
   .disabled {
