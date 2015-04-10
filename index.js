@@ -24,6 +24,10 @@ app.get('/list', function(req, res, next){
   return res.render('list');
 });
 
+app.get('/detail', function(req, res, next){
+  return res.render('detail');
+});
+
 app.listen(3000);
 
 module.exports = app;

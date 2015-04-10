@@ -116,12 +116,12 @@ $nav_toggle_hover_bg: #ddd;
       padding: 10px 15px;
       line-height: 40px;
       text-decoration: none;
-      color: #{$linkBlack};
+      color: #{$fontGray};
       font-size: 14px;
       font-size: .7rem;
       transition: color 300ms ease-in;
       &:hover{
-        color: #{$linkGreen};
+        color: #{$fontGreen};
         &:after{
           left: 0;
           width: 100%;
@@ -138,7 +138,7 @@ $nav_toggle_hover_bg: #ddd;
         background-color: #{$bgGreen};
       }
       &.active{
-        color: #{$linkGreen};
+        color: #{$fontGreen};
         &:after{
           content: '';
           position: absolute;

@@ -1,14 +1,20 @@
 @import "../_variables";
 
+$fontLectureP: #777;
+
 .bm_lecture_item {
   margin-bottom: 20px;
   margin-bottom: 1rem;
   padding: 20px;
   background-color: #{$bgWhite};
-  border: 1px solid #ddd;
+  transition: background-color 100ms ease-in;
+  border: 1px solid #{$bdGray};
   box-shadow: 0px 1px 0px 1px #eee;
   &:last-child{
     margin-bottom: 0;
+  }
+  &:hover{
+    background-color: darken( $bgWhite, 5% );
   }
 
   .bm_lecture_cover{
@@ -22,16 +28,16 @@
     font-size: 24px;
     font-size: 1.2rem;
     font-weight: normal;
-    color: #{$linkGreen};
+    color: #{$fontGreen};
   }
   p{
-    color: #aaa;
+    color: #{$fontLectureP};
     font-size: 14px;
     font-size: .7rem;
     font-weight: normal;
     line-height: 1.5;
     strong{
-      color: #{$linkGreen};
+      color: #{$fontGreen};
     }
   }
   .bm_lecture_more{
@@ -40,7 +46,7 @@
     text-align: right;
     a{
       text-decoration: none;
-      color: #{$linkGreen};
+      color: #{$fontGreen};
     }
   }
 
@@ -61,4 +67,10 @@
       text-align: center;
     }
   }
+}
+
+.bm_lecture_wrap{
+  padding: 20px;
+  background-color: #{$bgWhite};
+  border: 1px solid #{$bdGray};
 }

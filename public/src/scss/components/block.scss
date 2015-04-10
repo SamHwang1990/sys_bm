@@ -3,9 +3,9 @@
 /*.bm_block_head{
   margin-bottom: 5px;
   padding: 5px 5px;
-  color: lighten($linkGreen, 1%);
+  color: lighten($fontGreen, 1%);
   font-size: 20px;
-  border-left: 3px solid lighten($linkGreen, 3%);
+  border-left: 3px solid lighten($fontGreen, 3%);
 }*/
 
 .bm_block_head{
@@ -14,7 +14,7 @@
   padding-right: 15%;
   padding-bottom: 5px;
   text-align: center;
-  color: lighten($linkGreen, 1%);
+  color: lighten($fontGreen, 1%);
   font-size: 20px;
 
 }

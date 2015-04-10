@@ -22,13 +22,13 @@
 
 .bm_sort_list{
   margin: 0;
-  color: #{$linkGreen};
+  color: #{$fontGreen};
   .bm_list_item{
     padding-left: 0;
     padding-right: 0;
     text-align: center;
     &.active{
-      color: #{$linkGreen};
+      color: #{$fontGreen};
       background-color: darken( $bgWhite, 5% );
     }
   }

@@ -19,7 +19,7 @@
 
       padding: 5px 14px;
       background-color: #{$bgWhite};
-      color: #{$linkGreen};
+      color: #{$fontGreen};
       font-size: 14px;
       border: 1px solid #cccccc;
       border-radius: 15px;
@@ -27,7 +27,7 @@
     }
     a:hover,
     a:active{
-      color: #{$link};
+      color: #{$fontWhite};
       background-color: lighten( $bgGreen, 10% );
     }
   }
