@@ -1,4 +1,5 @@
 @import '_reset';
+@import "_variables";
 
 
 html{
@@ -45,7 +46,59 @@ body{
   border: 0;
 }
 
-.ml-30{
-  margin-left: 30px;
-  margin-left: 1.5rem;
+// margin and padding base
+
+.mt-20-lg{
+  margin-top: 20px;
+  margin-top: 1rem;
 }
+.mb-20-lg{
+  margin-bottom: 20px;
+  margin-bottom: 1rem;
+}
+
+@media #{$media} and (max-width: $screen-md-max) {
+  .mt-20-md{
+    margin-top: 20px;
+    margin-top: 1rem;
+  }
+  .mb-20-md{
+    margin-bottom: 20px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media #{$media} and (max-width: $screen-sm-max) {
+  .mt-20-sm{
+    margin-top: 20px;
+    margin-top: 1rem;
+  }
+  .mb-20-sm{
+    margin-bottom: 20px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media #{$media} and (max-width: $screen-xs-max) {
+  .mt-20-xs{
+    margin-top: 20px;
+    margin-top: 1rem;
+  }
+  .mb-20-xs{
+    margin-bottom: 20px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media #{$media} and (max-width: $screen-xx-max) {
+  .mt-20-xx{
+    margin-top: 20px;
+    margin-top: 1rem;
+  }
+  .mb-20-xx{
+    margin-bottom: 20px;
+    margin-bottom: 1rem;
+  }
+}
+
+
