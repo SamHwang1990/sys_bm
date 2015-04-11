@@ -230,24 +230,49 @@ $fontLectureP: #777;
     }
   }
 
-  .bm_lecture_appointment{
+  .bm_appointment_trigger{
     display: block;
     position: absolute;
     top: 10px;
     top: .5rem;
     right: 0;
     margin: 0;
-    padding: 6px 10px;
     background-color: lighten($bgGreen, 5%);
-    opacity: .6;
+    opacity: .7;
     z-index: 1;
-    font-size: 16px;
     color: #{$fontWhite};
     text-decoration: none;
-    border-radius: 3px;
     &:hover,
     &:focus{
       opacity: 1;
     }
+  }
+
+  .bm_lecture_caution{
+    display: none;
+    font-size: 14px;
+    line-height: 2;
+    color: #{$fontGrayer};
+    background-color: #{$bgWhite};
+    h2{
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #{$fontGreen};
+      text-align: center;
+    }
+  }
+
+  .bm_lecture_appointment_form{
+    display: none;
+  }
+}
+
+// modify the jquery.modal plugin
+.modal{
+  @media #{$media} and (max-width: $screen-xx-max){
+    width: 90% !important;
+    padding-left: 0;
+    padding-right: 0;
   }
 }

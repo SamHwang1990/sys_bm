@@ -18,6 +18,7 @@ module.exports = function(grunt){
       imgs: '<%= distDir %>/imgs',
       vendor: '<%= distDir %>/vendor',
       jsWatch: '<%= srcDir %>/js/**.js',
+      vendorWatch: '<%= srcDir %>/vendor',
       scss: '<%= srcDir %>/scss/sys_bm.scss',
       scssWatch: '<%= srcDir %>/scss/**/*.scss',
       npm: 'node_modules'
@@ -27,7 +28,11 @@ module.exports = function(grunt){
       assets:{
         files: [
           { dest: '<%= src.imgs %>/', src : '**', expand: true, cwd: '<%= srcDir %>/imgs' },
-          { dest: '<%= distDir %>', src: 'favicon.png', expand: true, cwd: '<%= srcDir %>'}
+          { dest: '<%= distDir %>', src: 'favicon.png', expand: true, cwd: '<%= srcDir %>'},
+          // for jquery.modal
+          { dest: '<%= src.css %>/', src: 'jquery.modal.css', expand: true, cwd: '<%= srcDir %>/vendor/jquery.modal'},
+          { dest: '<%= src.imgs %>/', src: 'close.png', expand:true, cwd: '<%= srcDir %>/vendor/jquery.modal'},
+          { dest: '<%= src.imgs %>/', src: 'spinner.gif', expand:true, cwd: '<%= srcDir %>/vendor/jquery.modal'}
         ]
       }
     },
@@ -46,6 +51,10 @@ module.exports = function(grunt){
       html5shiv:{
         src: ['<%= src.npm %>/html5shiv/dist/html5shiv.min.js'],
         dest: '<%= distDir %>/vendor/html5shiv.js'
+      },
+      'jquery.modal':{
+        src:['<%= src.vendorWatch %>/jquery.modal/jquery.modal.min.js'],
+        dest: '<%= src.vendor %>/jquery.modal.min.js'
       }
     },
     compass: {
@@ -63,6 +72,7 @@ module.exports = function(grunt){
         files:[
           '<%= src.jsWatch %>',
           '<%= src.scssWatch %>',
+          '<%= src.vendorWatch %>/**/*',
           '<%= srcDir %>/imgs/**/*'
         ],
         tasks:['build','timestamp']

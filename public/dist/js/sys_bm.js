@@ -18,7 +18,7 @@
   var Appointment = function(element, options){
     this.$element = $(element);
     this.options = $.extend({}, Appointment.DEFAULT, options);
-    this.$appointment = this.$element.find('.bm_appointment_btn').eq(0);
+    this.$appointment = this.$element.find('.bm_appointment_trigger').eq(0);
 
     this.offsetRight = null;
     this.offsetLeft = null;
