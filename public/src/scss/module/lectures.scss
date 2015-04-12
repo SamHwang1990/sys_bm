@@ -269,10 +269,15 @@ $fontLectureP: #777;
 }
 
 // modify the jquery.modal plugin
-.modal{
+.bm_lecture_caution{
   @media #{$media} and (max-width: $screen-xx-max){
+    margin-left: 5%;
     width: 90% !important;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    section{
+      padding: 10px 20px;
+    }
   }
 }

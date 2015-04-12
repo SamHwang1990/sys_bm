@@ -53,8 +53,8 @@ module.exports = function(grunt){
         dest: '<%= distDir %>/vendor/html5shiv.js'
       },
       'jquery.modal':{
-        src:['<%= src.vendorWatch %>/jquery.modal/jquery.modal.min.js'],
-        dest: '<%= src.vendor %>/jquery.modal.min.js'
+        src:['<%= src.vendorWatch %>/jquery.modal/jquery.modal.js'],
+        dest: '<%= src.vendor %>/jquery.modal.js'
       }
     },
     compass: {
