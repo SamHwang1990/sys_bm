@@ -1,5 +1,7 @@
 @import "../_variables";
 
+$formInputError: #d9534f;
+
 .bm_form{
 
 }
@@ -52,4 +54,8 @@
   &:focus{
     border-color: #{$bdGreen};
   }
+}
+.bm_form_errorInput{
+  color: #{$formInputError};
+  border-color: #{$formInputError};
 }
