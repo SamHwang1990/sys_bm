@@ -10,8 +10,9 @@
     this.$form = $(formEl);
     this.config = $.extend({}, bmDuoshuo.CONFIG, typeof config == 'object' && config);
     this.intervalArray = [];
-    this.successCode = 0;
-
+    this.config.successCode = 0;
+    this.config.short_name = 'sysbmtest';
+    this.config.secret = '35fd76467164cdf595a9c788d86cb377';
     this.config.threadKey = this.$form.find('.bm_form_title').eq(0).text();
     this.config.author = this.$form.find('.bm_form_author').eq(0).text();
 
@@ -20,8 +21,8 @@
 
   bmDuoshuo.CONFIG = {
     api: {
-      json: 'http://sysbmtest.duoshuo.com/posts/create.json',
-      jsonp: 'http://sysbmtest.duoshuo.com/posts/create.jsonp'
+      json: 'http://api.duoshuo.com/posts/create.json',
+      jsonp: 'http://api.duoshuo.com/posts/create.jsonp'
     },
     shortName: null,
     secret: null,
@@ -36,7 +37,7 @@
     e.preventDefault();
     var that = this;
     if(!this.checkInput()) return false;
-    this.sendAjax(this.checkInput());
+    this.sendAjax(this.collectInput());
 
   };
 
@@ -94,26 +95,43 @@
 
   bmDuoshuo.prototype.sendAjax = function(message){
     var that = this;
-    var ajaxData = {
+
+    // use jsonp
+    var url = that.config.api.jsonp + '?';
+    url += 'short_name=' + this.config.short_name
+    + '&'
+    + 'secret=' + this.config.secret
+    + '&'
+    + 'message=' + message
+    + '&'
+    + 'thread_key=' + this.config.threadKey
+    + '&'
+    + 'author_name=' + this.config.author
+    + '&'
+    + 'author_email=' + "funnyecho@foxmail.com";
+    //+ '&'
+    //+ 'callback=' + 'callback';
+
+    /*var ajaxData = {
       short_name: 'sysbmtest',
       secret: '35fd76467164cdf595a9c788d86cb377',
       message: message,
       thread_key: that.config.threadKey,
       author_name: that.config.author,
       author_email: "funnyecho@foxmail.com"
-    };
+    };*/
     $.ajax({
-      url: that.config.api.json,
+      url: url,
 
       // The name of the callback parameter, as specified by the YQL service
-      //jsonp: "callback",
-      type: that.config.method,
+      jsonp: "callback",
+      // type: that.config.method,
 
       // Tell jQuery we're expecting JSONP
-      dataType: "json",
+      dataType: "jsonp",
 
       // have problem in IE8-
-      data: JSON.stringify(ajaxData),
+      // data: JSON.stringify(ajaxData),
 
       // Work with the response
       success: $.proxy(that.success, that),
@@ -122,11 +140,12 @@
   };
 
   bmDuoshuo.prototype.success = function(response){
-    console.log(response);
+    //console.log(response);
+
   };
 
   bmDuoshuo.prototype.error = function(response){
-    console.log(response);
+    //console.log(response);
   };
 
   var initModule = function(config){
