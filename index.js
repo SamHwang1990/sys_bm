@@ -28,6 +28,10 @@ app.get('/detail', function(req, res, next){
   return res.render('detail');
 });
 
+app.get('/about', function(req, res, next){
+  return res.render('about');
+});
+
 app.listen(3000);
 
 module.exports = app;

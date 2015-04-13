@@ -107,23 +107,11 @@ img {
 }
 
 /* Clearing floats */
-.clear:after,
-.bm_main_wrap,
-.bm_wrap:after,
-.bm_row:after,
-.bm_header:after {
+.clearFix:after, .clearFix after{
   clear: both;
 }
-.clear:before,
-.clear:after,
-.bm_wrap:before,
-.bm_wrap:after,
-.bm_main_wrap:before,
-.bm_main_wrap:after,
-.bm_row:before,
-.bm_row:after,
-.bm_header:before,
-.bm_header:after {
+.clearFix:before, .clearFix before,
+.clearFix:after, .clearFix after {
   display: table;
   content: "";
 }
