@@ -507,13 +507,20 @@
     this.config.threadKey = this.$form.find('.bm_form_title').eq(0).text();
     this.config.author = this.$form.find('.bm_form_author').eq(0).text();
 
+    this.$feedbackEle = $('#bm_lecture_appointment_feedback');
+    this.config.feedback = {
+      successClass: 'success',
+      errorClass: 'wrong',
+      closeCountdown: 5 // second
+    };
+
     this.$form.on('submit.bm.duoshuo', $.proxy(this.submit, this));
   };
 
   bmDuoshuo.CONFIG = {
     api: {
-      json: 'http://api.duoshuo.com/posts/create.json',
-      jsonp: 'http://api.duoshuo.com/posts/create.jsonp'
+      json: 'http://sysbmtest.duoshuo.com/posts/create.json',
+      jsonp: 'http://sysbmtest.duoshuo.com/posts/create.jsonp'
     },
     shortName: null,
     secret: null,
@@ -527,8 +534,14 @@
   bmDuoshuo.prototype.submit = function(e){
     e.preventDefault();
     var that = this;
-    if(!this.checkInput()) return false;
-    this.sendAjax(this.collectInput());
+
+    // TODO: can not send ajax to duoshuo, so just test the feedback function first
+    //if(!this.checkInput()) return false;
+    //this.sendAjax(this.collectInput());
+
+    this.checkInput() ? this.success.call(this) : this.error.call(this);
+
+    return false;
 
   };
 
@@ -588,7 +601,7 @@
     var that = this;
 
     // use jsonp
-    var url = that.config.api.jsonp + '?';
+    /*var url = that.config.api.jsonp + '?';
     url += 'short_name=' + this.config.short_name
     + '&'
     + 'secret=' + this.config.secret
@@ -599,44 +612,68 @@
     + '&'
     + 'author_name=' + this.config.author
     + '&'
-    + 'author_email=' + "funnyecho@foxmail.com";
-    //+ '&'
-    //+ 'callback=' + 'callback';
+    + 'author_email=' + "funnyecho@foxmail.com";*/
 
-    /*var ajaxData = {
-      short_name: 'sysbmtest',
-      secret: '35fd76467164cdf595a9c788d86cb377',
+    var ajaxData = {
+      short_name: that.config.short_name,
+      secret: that.config.secret,
       message: message,
       thread_key: that.config.threadKey,
       author_name: that.config.author,
       author_email: "funnyecho@foxmail.com"
-    };*/
+    };
     $.ajax({
-      url: url,
+      url: that.config.api.json,
 
       // The name of the callback parameter, as specified by the YQL service
-      jsonp: "callback",
-      // type: that.config.method,
+      //jsonp: "callback",
+      type: that.config.method,
 
       // Tell jQuery we're expecting JSONP
-      dataType: "jsonp",
+      dataType: "json",
 
       // have problem in IE8-
-      // data: JSON.stringify(ajaxData),
+      data: JSON.stringify(ajaxData),
 
       // Work with the response
-      success: $.proxy(that.success, that),
-      error: $.proxy(that.error, that)
+      success: function(response){
+      },
+      error: function(error){
+
+      }
     });
   };
 
   bmDuoshuo.prototype.success = function(response){
     //console.log(response);
-
+    var message = "预约成功，我方会尽快安排，并与您沟通联系，感谢您的预约！";
+    this.$feedbackEle.find('.fb_message').addClass(this.config.feedback.successClass).text(message);
+    this.handlerFbModal();
   };
 
   bmDuoshuo.prototype.error = function(response){
     //console.log(response);
+    var message = "预约失败，请稍后再次尝试，或者联系管理员。感谢您的支持！";
+    this.$feedbackEle.find('.fb_message').addClass(this.config.feedback.errorClass).text(message);
+    this.handlerFbModal();
+  };
+
+  bmDuoshuo.prototype.handlerFbModal = function(fbType){
+    var $fbCloseBtn = this.$feedbackEle.find('.fb_closeBtn');
+    var $fbCloseCountdown = this.$feedbackEle.find('.fb_closeCountdown');
+    var fbCloseCountdown = this.config.feedback.closeCountdown;
+
+    // init the $fbCloseCountdown text
+    $fbCloseCountdown.text(fbCloseCountdown);
+
+    this.$feedbackEle.modal();
+    var closeInterval = setInterval(function(){
+      if(fbCloseCountdown <= 1){
+        clearInterval(closeInterval);
+        $fbCloseBtn.trigger('click.modal');
+      }
+      $fbCloseCountdown.text(--fbCloseCountdown);
+    }, 1000);
   };
 
   var initModule = function(config){

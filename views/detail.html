@@ -97,7 +97,7 @@
                                 </p>
                                 <a href="#bm_lecture_caution" rel="modal:open" class="bm_btn bm_appointment_trigger">我要预约</a>
                             </section>
-                            <div id="bm_lecture_caution" class="bm_lecture_caution" data-modal="true">
+                            <div id="bm_lecture_caution" data-modal="true">
                                 <section>
                                     <h2>请先阅读注意事项</h2>
                                     <p> 1. 预约方应以学校、社区等单位的团体形式预约。</p>
@@ -112,7 +112,7 @@
                                     <a class="bm_btn bm_btn_success bm_btn_sm" href="#bm_lecture_appointment_form" rel="modal:open">已阅读完毕</a>
                                 </section>
                             </div>
-                            <section id="bm_lecture_appointment_form" class="bm_lecture_appointment_form" data-modal="true">
+                            <section id="bm_lecture_appointment_form" data-modal="true">
                                 <form class="bm_form" data-duosho="true">
                                     <div class="bm_form_header">
                                         <p class="sr-only bm_form_title">飞禽</p>
@@ -139,6 +139,11 @@
                                     &emsp;
                                     <a class="bm_btn bm_btn_info bm_btn_sm" href="#bm_lecture_caution" rel="modal:open">返回注意事项</a>
                                 </form>
+                            </section>
+                            <section id="bm_lecture_appointment_feedback" data-modal="true">
+                                <p class="fb_message"></p>
+                                <p><small>本窗口将会在&nbsp;<span class="fb_closeCountdown">5</span>&nbsp;秒后关闭。</small></p>
+                                <a class="sr-only fb_closeBtn bm_btn" href="javascript:void(0);" rel="modal:close">关闭预约反馈窗口</a>
                             </section>
                         </article>
                         <nav class="bm_pager_wrap">
