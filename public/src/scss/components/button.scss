@@ -18,6 +18,8 @@ $btnWarningDark: #eea236;
 $btnDanger: #d9534f;
 $btnDangerDark: #d43f3a;
 
+$btnDisable: darken($bdGray, 5%);
+
 .bm_btn{
   display: inline-block;
   zoom:1;
@@ -97,5 +99,15 @@ $btnDangerDark: #d43f3a;
   &:hover,
   &:focus{
     background-color: #{$btnDangerDark};
+  }
+}
+
+.bm_btn_disable{
+  color: #{$fontWhite};
+  background-color: #{$btnDisable};
+  _background-color: #{$btnDisable} !important;
+  cursor: default;
+  &:hover, &:focus{
+    @extend .bm_btn_disable;
   }
 }

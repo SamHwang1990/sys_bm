@@ -15,6 +15,7 @@
     this.config.secret = '35fd76467164cdf595a9c788d86cb377';
     this.config.threadKey = this.$form.find('.bm_form_title').eq(0).text();
     this.config.author = this.$form.find('.bm_form_author').eq(0).text();
+    this.config.isIE6 = navigator.userAgent.indexOf("MSIE 6.0") !== -1 ;
 
     this.$feedbackEle = $('#bm_lecture_appointment_feedback');
     this.config.feedback = {
@@ -174,7 +175,7 @@
     $fbCloseCountdown.text(fbCloseCountdown);
 
     // 需要引入jquery.modal 控件
-    if($.modal){
+    if(!this.config.isIE6 && $.modal){
       this.$feedbackEle.modal();
       var closeInterval = setInterval(function(){
         if(fbCloseCountdown <= 1){

@@ -19,11 +19,11 @@ $breadcrumbFontActive: $fontGreen;
     *padding-right: 5px;
     color: #{$breadcrumbFontNormal};
 
-    + li:before {
+    /*+ li:before {
       content: "\00002f\000020"; // Unicode space added since inline-block means non-collapsing white-space
       padding: 0 5px;
       color: #{$breadcrumbFontNormal};
-    }
+    }*/
 
     a{
       color: #{$breadcrumbFontNormal};

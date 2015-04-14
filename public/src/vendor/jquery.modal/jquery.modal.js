@@ -227,6 +227,9 @@
     event.preventDefault();
     $(this).modal();
   });
+
+  // add by sam, 2015.04.14
+  // 本项目中所有jquery.modal 都是通过js 方式调用，为的是IE7 下也能有好的效果
   $(document).on('click.bm.modal', 'a[rel="bm-modal:open"]', function(event){
     event.preventDefault();
     var href;

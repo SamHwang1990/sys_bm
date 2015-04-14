@@ -18,7 +18,7 @@
     $after.html(content);
     $el.prepend($before);
     $el.append($after);
-  }
+  };
 
   $(document).ready(function(){
     if(document.querySelector) return;
