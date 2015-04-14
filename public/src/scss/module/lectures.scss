@@ -286,6 +286,9 @@ $fontLectureP: #777;
   .fb_closeCountdown{
     color: #{$fontWarning};
   }
+  .fb_closeBtn{
+    display: none;
+  }
 }
 
 // modify the jquery.modal plugin

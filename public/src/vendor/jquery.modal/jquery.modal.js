@@ -227,6 +227,12 @@
     event.preventDefault();
     $(this).modal();
   });
+  $(document).on('click.bm.modal', 'a[rel="bm-modal:open"]', function(event){
+    event.preventDefault();
+    var href;
+    var $target = $((href = $(this).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, ''));
+    $target.modal();
+  });
 
   // add by sam, 2015.04.12
   $(window).resize(function(){

@@ -7,6 +7,8 @@
 .bm_col_lg_1, .bm_col_lg_2, .bm_col_lg_3, .bm_col_lg_4, .bm_col_lg_5, .bm_col_lg_6, .bm_col_lg_7, .bm_col_lg_8, .bm_col_lg_9, .bm_col_lg_10, .bm_col_lg_11, .bm_col_lg_12{
   position: relative;
   float: left;
+  overflow: hidden;
+  *margin-left: -1px;
 }
 .bm_col_md_1, .bm_col_md_2, .bm_col_md_3, .bm_col_md_4, .bm_col_md_5, .bm_col_md_6, .bm_col_md_7, .bm_col_md_8, .bm_col_md_9, .bm_col_md_10, .bm_col_md_11, .bm_col_md_12{
   position: relative;

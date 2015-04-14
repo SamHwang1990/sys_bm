@@ -48,10 +48,8 @@
     //if(!this.checkInput()) return false;
     //this.sendAjax(this.collectInput());
 
-    this.checkInput() ? this.success.call(this) : this.error.call(this);
-
+    this.checkInput() && this.success.call(this);
     return false;
-
   };
 
   bmDuoshuo.prototype.clearInterval = function(){
@@ -175,14 +173,19 @@
     // init the $fbCloseCountdown text
     $fbCloseCountdown.text(fbCloseCountdown);
 
-    this.$feedbackEle.modal();
-    var closeInterval = setInterval(function(){
-      if(fbCloseCountdown <= 1){
-        clearInterval(closeInterval);
-        $fbCloseBtn.trigger('click.modal');
-      }
-      $fbCloseCountdown.text(--fbCloseCountdown);
-    }, 1000);
+    // 需要引入jquery.modal 控件
+    if($.modal){
+      this.$feedbackEle.modal();
+      var closeInterval = setInterval(function(){
+        if(fbCloseCountdown <= 1){
+          clearInterval(closeInterval);
+          $fbCloseBtn.trigger('click.modal');
+        }
+        $fbCloseCountdown.text(--fbCloseCountdown);
+      }, 1000);
+    }else{
+      alert(this.$feedbackEle.find('.fb_message').text());
+    }
   };
 
   var initModule = function(config){

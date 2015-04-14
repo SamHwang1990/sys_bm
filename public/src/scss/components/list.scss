@@ -6,6 +6,8 @@ $bgColor: #fff;
 .bm_list_group{
   position: relative;
   padding: 0;
+  border-bottom: 1px solid #{$bdGray};
+
 }
 .bm_list_item{
   position: relative;
@@ -40,7 +42,6 @@ a.bm_list_item{
     right: 15px;
   }
   .bm_list_excerpt{
-    *display: none;
     font-size: 12px;
     padding-left: 10px;
   }
