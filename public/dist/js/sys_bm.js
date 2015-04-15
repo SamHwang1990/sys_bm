@@ -613,6 +613,7 @@
     this.config.secret = '35fd76467164cdf595a9c788d86cb377';
     this.config.threadKey = this.$form.find('.bm_form_title').eq(0).text();
     this.config.author = this.$form.find('.bm_form_author').eq(0).text();
+    this.config.url = this.$form.find('.bm_form_url').eq(0).text();
     this.config.isIE6 = navigator.userAgent.indexOf("MSIE 6.0") !== -1 ;
 
     this.$feedbackEle = $('#bm_lecture_appointment_feedback');
@@ -693,6 +694,7 @@
 
     message += "讲座名称：" + this.config.threadKey + '\n';
     message += "主讲人：" + this.config.author + '\n';
+    message += "文章链接：" + this.config.url + '\n';
 
     this.$form.find('.bm_form_group').each(function(){
       var $label = $(this).find('label');

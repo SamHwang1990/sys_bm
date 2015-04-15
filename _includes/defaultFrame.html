@@ -10,7 +10,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="bm_brand" href="javascript:void(0);">
+                    <a class="bm_brand" href="{{ site.url }}/">
                         <img src="/static/imgs/bm_brand.png" title="中山大学生物博物馆Logo" >
                     </a>
                 </div>
@@ -20,9 +20,9 @@
                         <span class="bm_brand_textEn">The Museum of Biology, Sun Yat-sen University</span>
                     </div>
                     <ul class="bm_nav_list bm_collapse" id="bm_nav_list" aria-expanded="false">
-                        <li><a href="javascript:void(0);" class='{% if page.currentNav == "Index" %} active {% endif %}'>首页</a> </li>
-                        <li><a href="javascript:void(0);" class='{% if page.currentNav == "Lectures" %} active {% endif %}'>讲座介绍</a> </li>
-                        <li><a href="javascript:void(0);" class='{% if page.currentNav == "AboutUs" %} active {% endif %}' >联系我们</a> </li>
+                        <li><a href="{{ site.url }}/" class='{% if page.currentNav == "Index" %} active {% endif %}'>首页</a> </li>
+                        <li><a href="{{ site.url }}/lectures/index.html" class='{% if page.currentNav == "Lectures" %} active {% endif %}'>讲座介绍</a> </li>
+                        <li><a href="{{ site.url }}/aboutus.html" class='{% if page.currentNav == "AboutUs" %} active {% endif %}' >联系我们</a> </li>
                     </ul>
                 </div>
             </div>

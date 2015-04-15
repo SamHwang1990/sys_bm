@@ -22,7 +22,7 @@ author:
 
 # Outputting
 permalink: /lecture/:categories/:title.html
-paginate_path: lecture/page/:num
+paginate_path: /lectures/page/:num
 excerpt_separator: "<!--more-->"
 
 # Template Default
@@ -33,6 +33,8 @@ defaults:
       type: "pages"
     values:
       layout: "category"
+      needModal: false
+      currentNav: Lectures
 
   -
     scope:
@@ -40,3 +42,5 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      needModal: true
+      cover: "default.png"
